@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+theme = Theme.create(name: "Rock'n'Roll")
+queue = PlayQueue.create()
+home = Room.create(theme: theme, play_queue: queue)
