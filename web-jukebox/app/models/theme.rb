@@ -1,3 +1,3 @@
 class Theme < ActiveRecord::Base
-  attr_accessible :string
+  belongs_to :room
 end
