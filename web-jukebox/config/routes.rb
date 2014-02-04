@@ -1,11 +1,10 @@
 WebJukebox::Application.routes.draw do
-  resources :songs
-
-
-  resources :play_queues
-
-
-  resources :rooms
+  
+  resources :rooms do
+    resources :play_queues do
+      resources :songs
+    end
+  end
 
 
   # The priority is based upon order of creation:
@@ -57,7 +56,7 @@ WebJukebox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'rooms#index'
 
   # See how all your routes lay out with "rake routes"
 
