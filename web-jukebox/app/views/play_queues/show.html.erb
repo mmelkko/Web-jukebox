@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Room:</b>
+  <%= @play_queue.room %>
+</p>
+
+
+<%= link_to 'Edit', edit_play_queue_path(@play_queue) %> |
+<%= link_to 'Back', play_queues_path %>

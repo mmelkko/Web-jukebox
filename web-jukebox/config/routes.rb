@@ -1,4 +1,7 @@
 WebJukebox::Application.routes.draw do
+  resources :play_queues
+
+
   resources :rooms
 
 
