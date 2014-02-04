@@ -1,4 +1,7 @@
 WebJukebox::Application.routes.draw do
+  resources :songs
+
+
   resources :play_queues
 
 
