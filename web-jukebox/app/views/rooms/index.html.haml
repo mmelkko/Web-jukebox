@@ -5,11 +5,11 @@
   %p Lots of text describing what we are and what we do because we need to have content on this site because one third of the grade is from content
 
 
-%h2 Listing rooms
+  %h2 Listing rooms
 
-%table
-  %tbody
-    - @rooms.each do |room|
-      %tr
-        %td
-          = link_to 'Siirry huoneeseen', room
+  %table
+    %tbody
+      - @rooms.each do |room|
+        %tr
+          %td
+            = link_to 'Siirry huoneeseen', room
