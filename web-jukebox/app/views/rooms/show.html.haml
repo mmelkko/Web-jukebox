@@ -6,5 +6,6 @@
   .player
     %p ite playeri
 
-  = @room.play_queue
+  - @room.play_queue.songs.each do |song|
+    = song.soundcloud_id
   %p jokasesta biisistä tulis tällainen, mut ei oo biisei
