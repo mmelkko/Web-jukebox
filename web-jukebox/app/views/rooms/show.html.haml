@@ -1,12 +1,10 @@
 .small-8.large-centered.columns
   %h1 Room foo
-  %div{:id => "kokohuone", :class => "kokohuonePaadiv"}
-    %div{:id => "soundCloudPlacehorder", :class => "SoundCloudPlaceholderDiv"}
-      %p taretdrgfgdfdsgdgdgdgf
-      %p
-        %iframe{frameborder: "no", height: "450", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=false&hide_related=false&visual=true", width: "100%"}
-    %div{:id => "nextsongPlaceholder", :class => "nextsongPlaceholderDiv"}
-      %p Seuraava biisi on: Popeda - Jos pillua saan
-    %div{:id => "addNewSongPlaceholder", :class => "addNewSongPlaceholderDiv"}
-      %p Vittumitapaskaa
 
+  %h2 Now playing: lololol
+
+  .player
+    %p ite playeri
+
+  = @room.play_queue
+  %p jokasesta biisistä tulis tällainen, mut ei oo biisei

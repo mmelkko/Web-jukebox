@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 theme = Theme.create(name: "Rock'n'Roll")
-queue = PlayQueue.create()
+song = Song.create(soundcloud_id: "222")
+queue = PlayQueue.create(songs: [song])
 home = Room.create(theme: theme, play_queue: queue)

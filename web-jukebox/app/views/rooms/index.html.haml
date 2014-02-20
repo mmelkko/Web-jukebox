@@ -7,9 +7,6 @@
 
   %h2 Listing rooms
 
-  %table
-    %tbody
-      - @rooms.each do |room|
-        %tr
-          %td
-            = link_to 'Siirry huoneeseen', room
+  - @rooms.each do |room|
+    = link_to room do
+      .button Siirry huoneeseen
