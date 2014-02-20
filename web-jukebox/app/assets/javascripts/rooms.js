@@ -8,4 +8,5 @@ function toggleplayer()
   var widget1         = SC.Widget(iframeElement);
   
   widget1.toggle();
+  
 }
