@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220075122) do
+ActiveRecord::Schema.define(:version => 20140220083326) do
 
   create_table "play_queues", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20140220075122) do
 
   create_table "songs", :force => true do |t|
     t.integer  "soundcloud_id"
-    t.integer  "play_queues_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "play_queue_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "themes", :force => true do |t|
