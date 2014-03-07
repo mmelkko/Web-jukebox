@@ -10,6 +10,25 @@ function toggleplayer()
   widget1.toggle();
 
   widget1.getCurrentSound(function(sound) {
-    alert(sound.title);
+    //alert(sound.title);
   })
+}
+
+function nextsong()
+{
+  var iframeElement   = document.querySelector('iframe');
+  var iframeElementID = iframeElement.id;
+  var widget1         = SC.Widget(iframeElement);
+  
+  //kovakoodattu, hoh hoi
+  var newTrackId      = 138087598;
+
+  widget1.getCurrentSound(function(sound){
+    if (newTrackId == sound.id){
+      //sama biisi uudestaan
+      alert("moi!");
+    }
+  })
+
+  widget1.load("https%3A//api.soundcloud.com/tracks/" + newTrackId + "&auto_play=true&hide_related=false&visual=true");
 }
