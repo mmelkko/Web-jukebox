@@ -2,11 +2,8 @@
 
   %h1 Web-jukebox
 
-  %p Lots of text describing what we are and what we do because we need to have content on this site because one third of the grade is from content
-
-
-  %h2 Listing rooms
+  %p This is a nice application. You can listen to music from a specific theme here. Choose a room and theme and start listening!
 
   - @rooms.each do |room|
     = link_to room do
-      .button Siirry huoneeseen
+      .button= "Go to Jukebox with the theme #{room.theme.name}"
