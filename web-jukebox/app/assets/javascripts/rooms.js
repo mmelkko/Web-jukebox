@@ -9,7 +9,18 @@ function toggleplayer()
   
   widget1.toggle();
 
-  widget1.getCurrentSound(function(sound) {
-    alert(sound.title);
-  })
+  // widget1.getCurrentSound(function(sound) {
+    // alert(sound.title);
+  // })
 }
+$(document).ready(function() {
+  var iframeElement   = document.querySelector('iframe');
+  var iframeElementID = iframeElement.id;
+  var widget1         = SC.Widget(iframeElement);
+
+  widget1.isPaused(function(trolli) {
+    alert('pause');
+  });
+  
+});
+
