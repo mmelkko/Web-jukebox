@@ -1,3 +1,6 @@
+- content_for :modals do
+  = render "add_song_modal"
+
 .small-8.large-centered.columns
 
   %h1= @room.theme.name
@@ -5,5 +8,7 @@
   .player
     %p
       %iframe{frameborder: "no", height: "450", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=false&hide_related=false&visual=true", width: "100%"}
+
+  .button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Lisää biisi jonoon
 
   //%input{:type => "button", :class => "button", :onclick => "toggleplayer();", :value => "Toggle!"} 

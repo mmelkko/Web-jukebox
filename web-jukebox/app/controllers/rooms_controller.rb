@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
+    @play_queue = @room.play_queue
 
     respond_to do |format|
       format.html # show.html.erb
