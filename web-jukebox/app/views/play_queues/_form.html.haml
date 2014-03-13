@@ -1,0 +1,10 @@
+= form_for(:play_queue) do |f|
+  - if @play_queue.errors.any?
+    #error_explanation
+      %p="#{pluralize(@play_queue.errors.count, "error")} prohibited the song from being added:"
+      %ul
+      - @play_queue.errors.full_messages.each do |msg|
+        %li= msg
+
+  .actions.button.success
+    = f.submit

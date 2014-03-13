@@ -1,9 +1,18 @@
+- content_for :modals do
+  = render "add_song_modal"
+
 .small-8.large-centered.columns
 
   %h1= @room.theme.name
 
   .player
     %p
-      %iframe{frameborder: "no", height: "450", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=false&hide_related=false&visual=true", width: "100%"}
+      %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=true&hide_related=false&visual=true", width: "0%"}
 
-  //%input{:type => "button", :class => "button", :onclick => "toggleplayer();", :value => "Toggle!"} 
+
+  .button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Lisää biisi jonoon
+
+  .button{:onclick => "toggleplayer();"} Toggle! 
+
+  .button{:onclick => "nextsong();"} Next Song!
+
