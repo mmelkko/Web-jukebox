@@ -14,6 +14,7 @@ class PlayQueuesController < ApplicationController
   # GET /play_queues/1/edit
   def edit
     @play_queue = PlayQueue.find(params[:id])
+    @play_queue.songs.build
   end
 
   # PUT /play_queues/1
@@ -43,4 +44,19 @@ class PlayQueuesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    # Using a private method to encapsulate the permissible parameters is just a good pattern
+    # since you'll be able to reuse the same permit list between create and update. Also, you
+    # can specialize this method with per-user checking of permissible attributes.
+    def play_queue_params
+
+      params.require(:play_queue).permit(
+        :room,
+        song_attributes: [
+          :id,
+          :soundcloud_id
+        ]
+      )
+    end
 end

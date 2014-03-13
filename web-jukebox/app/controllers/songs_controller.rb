@@ -80,4 +80,16 @@ class SongsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    # Using a private method to encapsulate the permissible parameters is just a good pattern
+    # since you'll be able to reuse the same permit list between create and update. Also, you
+    # can specialize this method with per-user checking of permissible attributes.
+    def song_params
+
+      params.require(:song).permit(
+        :id,
+        :soundcloud_id
+        )
+    end
 end

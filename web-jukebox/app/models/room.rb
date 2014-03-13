@@ -5,5 +5,5 @@ class Room < ActiveRecord::Base
   has_one :play_queue, :dependent => :destroy
   accepts_nested_attributes_for :play_queue
 
-  attr_accessible :play_queue, :theme
+  #attr_accessible :play_queue, :theme
 end
