@@ -1,6 +1,3 @@
-- content_for :modals do
-  = render "add_song_modal"
-
 .small-8.large-centered.columns
 
   %h1= @room.theme.name
@@ -10,9 +7,21 @@
       %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=true&hide_related=false&visual=true", width: "0%"}
 
 
-  .button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Lisää biisi jonoon
+  #reveal-button.button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Lisää biisi jonoon
 
   .button{:onclick => "toggleplayer();"} Toggle! 
 
   .button{:onclick => "nextsong();"} Next Song!
 
+
+
+-# Modal
+#add-song-modal.reveal-modal.modal.small{"data-reveal" => ""}
+  .row
+    .large-12.columns
+
+      %p toimii jeejee
+
+      -#= render "play_queues/form"
+
+  %a.close-reveal-modal &#215;
