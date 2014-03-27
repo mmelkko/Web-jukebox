@@ -5,7 +5,6 @@ class Room < ActiveRecord::Base
   has_one :play_queue, :dependent => :destroy
   accepts_nested_attributes_for :play_queue
 
-  #attr_accessible :play_queue, :theme
 
   def register_soundcloud_client
   	# register a client with YOUR_CLIENT_ID as client_id_
@@ -24,10 +23,8 @@ class Room < ActiveRecord::Base
       puts track.permalink_url
     end
 
-
-#    current_user = client.get('/me')
-#    puts current_user.username
-
+    # current_user = client.get('/me')
+    # puts current_user.username
   end
 
 end
