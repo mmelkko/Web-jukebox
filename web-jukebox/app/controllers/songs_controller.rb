@@ -87,9 +87,6 @@ class SongsController < ApplicationController
     # can specialize this method with per-user checking of permissible attributes.
     def song_params
 
-      params.require(:song).permit(
-        :id,
-        :soundcloud_id
-        )
+      params.require(:song).permit!
     end
 end

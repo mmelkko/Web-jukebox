@@ -15,6 +15,10 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @play_queue = @room.play_queue
+    @play_queue.songs.build # in case user wants to add a song
+    # this is done here because ror has made it impossible to open a controller action
+    # in a modal page and go through the controller also. Try google it - no way unless
+    # you do super javascript trix
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,14 +53,7 @@ class RoomsController < ApplicationController
     # can specialize this method with per-user checking of permissible attributes.
     def room_params
 
-      params.require(:room).permit(
-        play_queue_attributes: [
-          :id,
-          :room,
-          song_attributes: [
-            :id,
-            :soundcloud_id]],
-        )
+      params.require(:room).permit!
     end
 
 end

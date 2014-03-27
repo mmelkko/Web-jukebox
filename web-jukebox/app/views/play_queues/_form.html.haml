@@ -6,7 +6,7 @@
       - @play_queue.errors.full_messages.each do |msg|
         %li= msg
 
-  = f.fields_for :song do |builder|
+  = f.fields_for :songs do |builder|
     = render 'play_queues/song_fields', f: builder
 
   .actions

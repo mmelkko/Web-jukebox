@@ -14,7 +14,6 @@ class PlayQueuesController < ApplicationController
   # GET /play_queues/1/edit
   def edit
     @play_queue = PlayQueue.find(params[:id])
-    @play_queue.songs.build
   end
 
   # PUT /play_queues/1
@@ -23,8 +22,8 @@ class PlayQueuesController < ApplicationController
     @play_queue = PlayQueue.find(params[:id])
 
     respond_to do |format|
-      if @play_queue.update_attributes(params[:play_queue])
-        format.html { redirect_to @play_queue, notice: 'Play queue was successfully updated.' }
+      if @play_queue.update_attributes(params[:play_queue].permit!)
+        format.html { redirect_to room_path(@play_queue.room.id), notice: 'Play queue was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -50,13 +49,6 @@ class PlayQueuesController < ApplicationController
     # since you'll be able to reuse the same permit list between create and update. Also, you
     # can specialize this method with per-user checking of permissible attributes.
     def play_queue_params
-
-      params.require(:play_queue).permit(
-        :room,
-        song_attributes: [
-          :id,
-          :soundcloud_id
-        ]
-      )
+      params.require(:play_queue).permit!
     end
 end

@@ -1,3 +1,4 @@
-.field
-  = f.label "Soundcloud ID"
-  = f.text_field :soundcloud_id
+- if f.object.id.nil?
+  .field
+    = f.label "Soundcloud ID"
+    = f.text_field :soundcloud_id
