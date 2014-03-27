@@ -38,6 +38,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  def register_client
+    @room = Room.find(params[:id])
+    @room.register_soundcloud_client
+  end
+
   private
     # Using a private method to encapsulate the permissible parameters is just a good pattern
     # since you'll be able to reuse the same permit list between create and update. Also, you

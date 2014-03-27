@@ -32,9 +32,10 @@ function nextsong()
 
   widget1.load("https%3A//api.soundcloud.com/tracks/" + newTrackId + "&auto_play=true&hide_related=false&visual=true");
 
-$(document).ready(function() {
-   $('#reveal-button').click(function(e) {
+  $(document).ready(function() {
+    $('#reveal-button').click(function(e) {
       e.preventDefault();
       $('#add-song-modal').reveal();
-   });
-});
+    });
+  });
+}

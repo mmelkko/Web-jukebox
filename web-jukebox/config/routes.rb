@@ -1,6 +1,11 @@
 WebJukebox::Application.routes.draw do
   
   resources :rooms do
+
+    member do
+      get 'register_client'
+    end
+    
     resources :play_queues do
       resources :songs
     end

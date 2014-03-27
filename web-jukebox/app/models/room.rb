@@ -7,11 +7,11 @@ class Room < ActiveRecord::Base
 
   #attr_accessible :play_queue, :theme
 
-  def registerSoundCloudClient()
+  def register_soundcloud_client
   	# register a client with YOUR_CLIENT_ID as client_id_
   	# YOUR_CLIENT_ID = 86898a442cab8a6489b73d3e8d927acf
     client = SoundCloud.new({
-        :client_id     => "86898a442cab8a6489b73d3e8d927acf"
+        :client_id      => "86898a442cab8a6489b73d3e8d927acf"
         #,
         #:client_secret => "d43c8c54c71cd73f771b0e69d8a714a9",
         #:username      => 'punkkulaatta',
@@ -24,6 +24,7 @@ class Room < ActiveRecord::Base
     tracks.each do |track|
       puts track.permalink_url
     end
+
 
 #    current_user = client.get('/me')
 #    puts current_user.username

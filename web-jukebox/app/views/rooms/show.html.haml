@@ -13,9 +13,10 @@
 
   .button{:onclick => "nextsong();"} Next Song!
 
-  .button{:onclick => @room.registerSoundCloudClient()} Register SoundCloud client!
-
-
+  -#.button{:onclick => @room.registerSoundCloudClient} Register SoundCloud client!
+  -#= button_to "Register Soundcloud client", :action => "registerClient"
+  = link_to register_client_room_path(@room), :remote => true do
+    .button register client
 
 -# Modal
 #add-song-modal.reveal-modal.modal.small{"data-reveal" => ""}
