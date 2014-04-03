@@ -8,11 +8,11 @@
     - @rooms.each do |room|
       .room.small-4.columns
         = link_to room do
-          = placeholdit_image_tag "250", text: "Album Cover for #{room.theme.name}"
+          = placeholdit_image_tag "250", text: "Album Cover for #{room.theme.name}", background_color: "#ff9200", text_color: "#C53421"
 
     -# ***PLACEHOLDERS START*** remove once there are more rooms
     .room.small-4.columns
-      = placeholdit_image_tag "250", text: "Placeholder Room Theme"
+      = placeholdit_image_tag "250", text: "Placeholder Room Theme", background_color: "#ffb134", text_color: "#F76700"
     .room.small-4.columns
-      = placeholdit_image_tag "250", text: "Placeholder Room Theme"
+      = placeholdit_image_tag "250", text: "Placeholder Room Theme", background_color: "#ffc900", text_color: "#ff9200"
     -# ***PLACEHOLDERS END*** remove once there are more rooms
