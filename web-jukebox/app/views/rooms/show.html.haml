@@ -2,14 +2,17 @@
 
   .header.small-12.columns
     %h1= "#{@room.theme.name} Jukebox"
-    %p= "There are #{@room.play_queue.songs.count} song(s) in the queue. The queue is [n] minutes long."
+    %p= "There are #{@room.play_queue.songs.count} song(s) in the queue. The queue is n minutes long."
 
   .player.small-12.columns
-    .small-6.columns
+    .small-5.columns
       = placeholdit_image_tag "300", text: "Album cover"
       %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=true&hide_related=false&visual=true", width: "0%"}
-    .small-6.columns
-      %p [Artist name]
+    .small-7.columns
+      %h3 Artist name
+      %h2 Song name
+      %p From the album Album name
+      %p Chosen by User name
 
   .options.small-12.columns
     #reveal-button.button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a song to the queue
