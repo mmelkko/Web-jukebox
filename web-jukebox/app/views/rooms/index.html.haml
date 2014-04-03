@@ -1,9 +1,18 @@
 .small-8.large-centered.columns
 
-  %h1 Web-jukebox
+  .header.small-12.columns
+    %h1 Web-jukebox
+    %p This is a nice application. You can listen to music from a theme here. Choose a room and start listening!
 
-  %p This is a nice application. You can listen to music from a specific theme here. Choose a room and theme and start listening!
+  .rooms.small-12.columns
+    - @rooms.each do |room|
+      .room.small-4.columns
+        = link_to room do
+          = placeholdit_image_tag "250", text: "Album Cover for #{room.theme.name}"
 
-  - @rooms.each do |room|
-    = link_to room do
-      .button= "Go to Jukebox with the theme #{room.theme.name}"
+    -# ***PLACEHOLDERS START*** remove once there are more rooms
+    .room.small-4.columns
+      = placeholdit_image_tag "250", text: "Placeholder Room Theme"
+    .room.small-4.columns
+      = placeholdit_image_tag "250", text: "Placeholder Room Theme"
+    -# ***PLACEHOLDERS END*** remove once there are more rooms
