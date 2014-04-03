@@ -5,8 +5,8 @@
     %p= "There are #{@room.play_queue.songs.count} song(s) in the queue. The queue is [n] minutes long."
 
   .player
-    %p
-      %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=true&hide_related=false&visual=true", width: "0%"}
+    = placeholdit_image_tag "300", text: "Album cover"
+    %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=true&hide_related=false&visual=true", width: "0%"}
 
 
   #reveal-button.button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a song to the queue
