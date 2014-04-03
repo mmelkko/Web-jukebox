@@ -15,9 +15,12 @@
       %p Chosen by User name
 
   .options.small-12.columns
-    #reveal-button.button.success.large{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a song to the queue
+    .small-5.columns
+      #reveal-button.button.expand.success{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a song to the queue
 
   .developer.small-12.columns
+    %hr
+    %h4 Developer options
     .button{:onclick => "toggleplayer();"} Toggle! 
     .button{:onclick => "nextsong();"} Next Song!
     = link_to register_client_room_path(@room), :remote => true do
