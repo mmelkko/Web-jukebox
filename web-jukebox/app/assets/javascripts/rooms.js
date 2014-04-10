@@ -37,16 +37,17 @@ function nextsong()
       e.preventDefault();
       $('#add-song-modal').reveal();
     });
-
   });
 }
 $(document).ready(function() {
     var iframeElement = document.querySelector('iframe');
 	var iframeElementID = iframeElement.id;
 	var widget1 = SC.Widget(iframeElement);
-	alert('1');
 	
-    widget1.bind(SC.Widget.Events.PAUSE, function() {
-       //alert('2');
+	widget1.bind(SC.Widget.Events.READY, function(){
+		widget1.play();
+	});
+	widget1.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
+       //alert(eventData.relativePosition);
     });
 });
