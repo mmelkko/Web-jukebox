@@ -5,7 +5,6 @@ class Room < ActiveRecord::Base
   has_one :play_queue, :dependent => :destroy
   accepts_nested_attributes_for :play_queue
 
-
   def register_soundcloud_client
   	# register a client with YOUR_CLIENT_ID as client_id_
   	# YOUR_CLIENT_ID = 86898a442cab8a6489b73d3e8d927acf

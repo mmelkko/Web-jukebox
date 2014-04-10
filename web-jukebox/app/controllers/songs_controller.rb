@@ -76,7 +76,7 @@ class SongsController < ApplicationController
     @song.destroy
 
     respond_to do |format|
-      format.html { redirect_to songs_url }
+      format.html { redirect_to room_path(@song.play_queue.room.id) }
       format.json { head :no_content }
     end
   end
