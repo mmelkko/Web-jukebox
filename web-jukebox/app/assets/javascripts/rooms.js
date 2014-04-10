@@ -14,7 +14,7 @@ function toggleplayer()
   })
 }
 
-function nextsong()
+function testnextsong()
 {
   var iframeElement   = document.querySelector('iframe');
   var iframeElementID = iframeElement.id;
