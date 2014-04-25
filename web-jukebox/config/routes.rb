@@ -12,7 +12,7 @@ WebJukebox::Application.routes.draw do
       resources :songs
     end
 
-    resources :timer do
+    resources :timers do
     end
   end
 
