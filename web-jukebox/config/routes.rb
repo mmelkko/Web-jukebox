@@ -6,6 +6,7 @@ WebJukebox::Application.routes.draw do
 
     member do
       get 'register_client'
+      get 'manage'
     end
     
     resources :play_queues do
@@ -13,6 +14,10 @@ WebJukebox::Application.routes.draw do
     end
 
     resources :timers do
+      member do
+        get 'now'
+        get 'time_song'
+      end
     end
   end
 
