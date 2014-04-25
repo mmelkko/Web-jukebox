@@ -1,5 +1,7 @@
 WebJukebox::Application.routes.draw do
   
+  get "timer/now"
+
   resources :rooms do
 
     member do
