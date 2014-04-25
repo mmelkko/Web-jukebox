@@ -1,6 +1,6 @@
 WebJukebox::Application.routes.draw do
   
-  get "timer/now"
+  get "timer/test"
 
   resources :rooms do
 
@@ -10,6 +10,9 @@ WebJukebox::Application.routes.draw do
     
     resources :play_queues do
       resources :songs
+    end
+
+    resources :timer do
     end
   end
 

@@ -1,6 +1,21 @@
 class TimerController < ApplicationController
   def now
+  	@timer = Timer.find(params[:timer])
+
+  	now = Time.now
+  	song_time = now - @timer.start
+  	render text: song_time
+  end
+
+  def test
   	render text: "It's the final countdown!"
+  end
+
+  def time_song
+  	@timer = Timer.find(params[:timer])
+
+  	timer = Timers.new
+  	song_timer = timers.after((self.duration/1000)) { render text: "Song ended now!" }
   end
 
   private
