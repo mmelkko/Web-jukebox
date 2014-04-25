@@ -47,6 +47,17 @@ class RoomsController < ApplicationController
     @room.register_soundcloud_client
   end
 
+  def manage
+    @room = Room.find(params[:id])
+
+    # TODO: [aseta room.timer.durationiin trackin duration tässä]
+
+    @room.timer.start = Time.now
+
+    # TODO: redirectaa timerin time_songiin
+
+  end
+
   private
     # Using a private method to encapsulate the permissible parameters is just a good pattern
     # since you'll be able to reuse the same permit list between create and update. Also, you
