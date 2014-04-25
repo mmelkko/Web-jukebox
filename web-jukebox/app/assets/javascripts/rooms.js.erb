@@ -14,6 +14,19 @@ function toggleplayer()
   })
 }
 
+// Here's a good start for communication w/ HTTP requests!
+function gettime()
+{
+//  alert("placeholder");
+  var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "http://localhost:3000/timer/now", false );
+    xmlHttp.send( null );
+//    return xmlHttp.responseText;
+  alert(xmlHttp.responseText);
+}  
+
 function nextsong()
 {
   var iframeElement   = document.querySelector('iframe');
@@ -48,6 +61,7 @@ $(document).ready(function() {
 		widget1.play();
 	});
 	widget1.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
+       if(eventData.relativePosition > 0.95)alert("aika lopussa ollaan hei nyt");
        //alert(eventData.relativePosition);
     });
 });
