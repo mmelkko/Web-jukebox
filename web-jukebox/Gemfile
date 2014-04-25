@@ -24,11 +24,11 @@ group :assets do
   
 end
 
+gem 'soundcloud', '~> 0.3.2'
+
 gem 'jquery-rails'
 
 gem 'haml'
-
-gem 'soundcloud'
 
 gem 'strong_parameters'
 

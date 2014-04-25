@@ -138,7 +138,7 @@ DEPENDENCIES
   placeholdit
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
-  soundcloud
+  soundcloud (~> 0.3.2)
   sqlite3
   strong_parameters
   uglifier (>= 1.0.3)
