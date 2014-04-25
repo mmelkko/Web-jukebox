@@ -51,6 +51,7 @@ GEM
       tilt
     hashie (2.0.5)
     hike (1.2.3)
+    hitimes (1.2.1)
     httmultiparty (0.3.10)
       httparty (>= 0.7.3)
       multipart-post
@@ -117,6 +118,8 @@ GEM
       railties (~> 3.0)
     thor (0.18.1)
     tilt (1.4.1)
+    timers (2.0.0)
+      hitimes
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -141,5 +144,6 @@ DEPENDENCIES
   soundcloud (~> 0.3.2)
   sqlite3
   strong_parameters
+  timers (~> 2.0.0)
   uglifier (>= 1.0.3)
   zurb-foundation
