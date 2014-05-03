@@ -1,0 +1,19 @@
+Doing ATM:
+- soundcloudista tietojen hakemista rubylla controllereissa (mevi)
+
+Must-do:
+- biisien ottaminen tietokannasta widgettiin
+- timerin hakeminen javascriptistä
+- web-jukebox internettiin
+    + herokun pystyttäminen
+    + soundcloudista kaikki tarvittavat tiedot aina room.showssa
+- selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
+- (ennen palautusta) developer optionsit vittuun
+
+Should-do:
+- refaktorointi: play-queue vittuun, songit suoraan roomissa (mevi)
+- Koko sivun ulkonäön parantaminen
+
+Could-do:
+
+
