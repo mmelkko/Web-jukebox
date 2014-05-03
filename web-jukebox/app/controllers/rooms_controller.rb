@@ -53,16 +53,30 @@ class RoomsController < ApplicationController
   def manage
     @room = Room.find(params[:id])
 
-    # TODO: poista atm soiva biisi
+    begin
 
-    @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
-    track = @client.get("/tracks/141223754")
-    
-    @room.clock.duration = track.duration
-    @room.clock.start = Time.now
-    @room.clock.save
+      @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
 
-    redirect_to time_song_room_clock_path(@room, @room.clock)
+      unless @room.play_queue.songs.first.blank?
+        @room.play_queue.songs.first.destroy
+      end
+
+      unless @room.play_queue.songs.first.blank? # jos ei oo biisii ei tehä mitään
+
+        track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
+
+        @room.clock.duration = track.duration
+        @room.clock.start = Time.now
+        @room.clock.save
+
+        redirect_to time_song_room_clock_path(@room, @room.clock)
+
+      end
+
+    rescue SoundCloud::ResponseError
+      retry
+
+    end
 
   end
 
