@@ -5,7 +5,7 @@
     %p= "There are #{@room.play_queue.songs.count} Song(s) in the Queue. The Queue is n minutes long."
 
   .player.small-12.columns
-    .small-5.columns
+    .small-5.columns#albumArt
       = placeholdit_image_tag "300", text: "Album Cover", background_color: "#ff9200", text_color: "#C53421"
       %iframe{frameborder: "no", height: "0", scrolling: "no", src: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/105974368&auto_play=false&hide_related=false&visual=true", width: "0%"}
     .small-7.columns

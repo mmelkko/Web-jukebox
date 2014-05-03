@@ -14,6 +14,7 @@ function toggleplayer()
   })
 }
 
+//get sound object, parse useful data from json to string vars
 function getsound()
 {
   var iframeElement   = document.querySelector('iframe');
@@ -58,6 +59,8 @@ function gettime()
   xmlHttp.open( "GET", sURL, false );
   xmlHttp.send( null );
   alert(xmlHttp.responseText);
+  //current document URL!
+  alert(document.URL);
 }  
 
 function nextsong()
@@ -85,6 +88,8 @@ function nextsong()
     });
   });
 }
+
+//bind event listeners
 $(document).ready(function() {
     var iframeElement = document.querySelector('iframe');
 	var iframeElementID = iframeElement.id;
@@ -98,4 +103,11 @@ $(document).ready(function() {
       //for testing purposes
       if(eventData.relativePosition > 0.95)gettime();
     });
+
+});
+
+//replace contents
+$(document).ready(function() {
+  //getsound();
+  document.getElementById("albumArt");
 });
