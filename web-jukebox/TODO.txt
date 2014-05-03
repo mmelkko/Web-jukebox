@@ -9,6 +9,7 @@ Must-do:
     + herokun pystyttäminen
     + soundcloudista kaikki tarvittavat tiedot aina room.showssa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
+- handlaus sille että mitä jos jonossa ei oo ainootakaan biisiä
 - (ennen palautusta) developer optionsit vittuun
 
 Should-do:
