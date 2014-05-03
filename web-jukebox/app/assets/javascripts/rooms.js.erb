@@ -13,14 +13,19 @@ SC.initialize({
 var iframeElement = document.querySelector('iframe');
 var iframeElementID = iframeElement.id;
 var widget1 = SC.Widget(iframeElement);
+var tracklist; //global variable necessary b/c callbacks. holds search results.
 
 function search()
 {
   var searchQ = document.getElementById("searchForm").value;
   SC.get('/tracks', { q: searchQ }, function(tracks) {
-    console.log(tracks);
-    alert(tracks[0].title);
+    tracklist = tracks;
+    console.log(tracklist);
   });
+
+  //does NOT react immediately b/c of callback above - try calling twice!
+  var newId = tracklist[0].id;
+  widget1.load("https%3A//api.soundcloud.com/tracks/" + newId + "&auto_play=true&hide_related=false&visual=true");
 }
 
 function toggleplayer()
