@@ -1,5 +1,6 @@
 Doing ATM:
 - biisien poistaminen roomin managessa sitten kun timeri ilmoittaa että homma on valmis (onko tässä synkkaongelma?) (mevi)
+- soundcloud search (jukka)
 
 Must-do:
 - biisien ottaminen tietokannasta widgettiin

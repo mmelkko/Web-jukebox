@@ -38,4 +38,14 @@
     .large-12.columns
       = render :template => "play_queues/edit"
 
+  .row
+    .large-12.columns
+      %form{action: ""}
+        Search term:
+        %input#searchForm{name: "searchForm", type: "text"}/
+
+  .row
+    .large-12.columns
+      .button{:onclick => "search();"} Search!
+
   %a.close-reveal-modal &#215;
