@@ -1,6 +1,4 @@
 WebJukebox::Application.routes.draw do
-  
-  get "timer/test"
 
   resources :rooms do
 
@@ -13,7 +11,7 @@ WebJukebox::Application.routes.draw do
       resources :songs
     end
 
-    resources :timers do
+    resources :clocks do
       member do
         get 'now'
         get 'time_song'
@@ -21,6 +19,7 @@ WebJukebox::Application.routes.draw do
     end
   end
 
+  get "timer/test"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

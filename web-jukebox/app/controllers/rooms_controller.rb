@@ -52,9 +52,9 @@ class RoomsController < ApplicationController
 
     # TODO: [aseta room.timer.durationiin trackin duration tässä]
 
-    @room.timer.start = Time.now
+    @room.clock.start = Time.now
 
-    # TODO: redirectaa timerin time_songiin
+    redirect_to time_song_room_clock_path(@room, @room.clock)
 
   end
 

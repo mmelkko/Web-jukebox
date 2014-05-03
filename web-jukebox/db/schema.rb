@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140503081307) do
+ActiveRecord::Schema.define(:version => 20140503084717) do
+
+  create_table "clocks", :force => true do |t|
+    t.integer  "start"
+    t.integer  "duration"
+    t.integer  "room_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "play_queues", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -33,14 +41,6 @@ ActiveRecord::Schema.define(:version => 20140503081307) do
 
   create_table "themes", :force => true do |t|
     t.string   "name"
-    t.integer  "room_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "timers", :force => true do |t|
-    t.integer  "start"
-    t.integer  "duration"
     t.integer  "room_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
