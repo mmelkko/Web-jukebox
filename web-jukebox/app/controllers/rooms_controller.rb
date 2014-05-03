@@ -75,7 +75,7 @@ class RoomsController < ApplicationController
     # TODO: poista atm soiva biisi
 
     track = @client.get("/tracks/#{@room.play_queue.songs.first.id}")
-    # TODO: [aseta room.timer.durationiin trackin duration tässä]
+    @room.clock.duration = track.duration
 
     @room.clock.start = Time.now
 
