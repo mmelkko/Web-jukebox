@@ -24,6 +24,7 @@
     .button{:onclick => "gettime();"} Time!
     .button{:onclick => "toggleplayer();"} Toggle! 
     .button{:onclick => "testnextsong();"} Next Song!
+    .button{:onclick => "getsound();"} Get Sound!
     = link_to room_play_queue_song_path(@room, @room.play_queue, @room.play_queue.songs.first), :method => :delete do
       .button Delete first Song in Queue
     = link_to register_client_room_path(@room), :remote => true do

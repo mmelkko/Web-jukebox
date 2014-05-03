@@ -14,6 +14,39 @@ function toggleplayer()
   })
 }
 
+function getsound()
+{
+  var iframeElement   = document.querySelector('iframe');
+  var iframeElementID = iframeElement.id;
+  var widget1         = SC.Widget(iframeElement);
+
+  widget1.getCurrentSound(function(sound) {
+    //print to console
+    console.log(sound);
+    
+    //song-related
+    var title = sound.title;
+    var duration = sound.duration;
+    var waveformUrl = sound.waveform_url;
+    var artworkUrl = sound.artwork_url;
+    var description = sound.description;
+    var tags = sound.tag_list;
+    var playbackCount = sound.playback_count;
+    var likeCount = sound.likes_count;
+    var favoritingCount = sound.favoritings_count;
+    var permalink = sound.permalink_url;
+    var id = sound.id;
+    var createdAt = sound.created_at;
+    var genre = sound.genre;
+
+    //artist-related
+    var artist = sound.user.username;
+    var artistAvatarUrl = sound.user.avatar_url;
+    
+    alert(artist + ' - ' + title);
+  })
+}
+
 
 // Here's a good start for communication w/ HTTP requests!
 function gettime()
