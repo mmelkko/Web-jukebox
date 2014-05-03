@@ -1,5 +1,4 @@
 class ClocksController < ApplicationController
-  require 'timers'
 
   def now
   	@timer = Clock.find(params[:id])
@@ -16,10 +15,14 @@ class ClocksController < ApplicationController
   def time_song
   	@clock = Clock.find(params[:id])
 
-  	timers = Timers.new
-  	song_timer = timers.after((@clock.duration/1000)) { render text: "Song ended now!" }
+    start_time = Time.now
+    sleep(@clock.duration/1000)
+    slept_for = Time.now - start_time
 
-    render :nothing => true
+    # TODO for debugging reasons I leave this here
+    logger.info("**** You slept for #{slept_for} seconds. You should have slept for #{@clock.duration/1000}. ****")
+
+    render text: "Song ended now!"
   end
 
   private
