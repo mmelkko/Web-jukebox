@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+
+  require 'soundcloud'
+
   # GET /rooms
   # GET /rooms.json
   def index
@@ -44,12 +47,34 @@ class RoomsController < ApplicationController
 
   def register_client
     @room = Room.find(params[:id])
-    @room.register_soundcloud_client
+    
+    # register a client with YOUR_CLIENT_ID as client_id_
+    # YOUR_CLIENT_ID = 86898a442cab8a6489b73d3e8d927acf
+    @client = SoundCloud.new({
+        :client_id      => "86898a442cab8a6489b73d3e8d927acf",
+        :client_secret => "d43c8c54c71cd73f771b0e69d8a714a9",
+        :username      => 'punkkulaatta',
+        :password      => 'REMOVED FOR OBVIOUS REASONS'
+    })
+    # get 10 hottest tracks
+    # tracks = @client.get('/tracks', :limit => 10, :order => 'hotness')
+    # print each link
+    # DOES NOT WORK
+    # tracks.each do |track|
+    #  puts track.permalink_url
+    # end
+
+    # current_user = client.get('/me')
+    # puts current_user.username
+
   end
 
   def manage
     @room = Room.find(params[:id])
 
+    # TODO: poista atm soiva biisi
+
+    track = @client.get("/tracks/#{@room.play_queue.songs.first.id}")
     # TODO: [aseta room.timer.durationiin trackin duration tässä]
 
     @room.clock.start = Time.now
