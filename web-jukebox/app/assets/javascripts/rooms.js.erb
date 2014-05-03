@@ -48,6 +48,19 @@ function getsound()
   })
 }
 
+function getAlbumArtwork()
+{
+  var iframeElement   = document.querySelector('iframe');
+  var iframeElementID = iframeElement.id;
+  var widget1         = SC.Widget(iframeElement);
+
+  widget1.getCurrentSound(function(sound) {
+    var waveformUrl = sound.waveform_url;
+    var artworkUrl = sound.artwork_url;
+  })
+  return artworkUrl;
+}
+
 
 // Here's a good start for communication w/ HTTP requests!
 function gettime()
@@ -89,9 +102,11 @@ function nextsong()
   });
 }
 
-//bind event listeners
+//when document is loaded
 $(document).ready(function() {
-    var iframeElement = document.querySelector('iframe');
+
+  //bind listeners
+  var iframeElement = document.querySelector('iframe');
 	var iframeElementID = iframeElement.id;
 	var widget1 = SC.Widget(iframeElement);
 	
@@ -104,10 +119,30 @@ $(document).ready(function() {
       if(eventData.relativePosition > 0.95)gettime();
     });
 
-});
+  // replace contents
+  widget1.getCurrentSound(function(sound) {
+    var title = sound.title;
+    var duration = sound.duration;
+    var waveformUrl = sound.waveform_url;
+    var artworkUrl = sound.artwork_url;
+    var description = sound.description;
+    var tags = sound.tag_list;
+    var playbackCount = sound.playback_count;
+    var likeCount = sound.likes_count;
+    var favoritingCount = sound.favoritings_count;
+    var permalink = sound.permalink_url;
+    var id = sound.id;
+    var createdAt = sound.created_at;
+    var genre = sound.genre;
 
-//replace contents
-$(document).ready(function() {
-  //getsound();
-  document.getElementById("albumArt");
+    //artist-related
+    var artist = sound.user.username;
+    var artistAvatarUrl = sound.user.avatar_url;
+    
+//    alert(artist + ' - ' + title);
+
+    var albumArtWrapper = document.getElementById("albumArt");
+    albumArtWrapper.innerHTML = '<img src='+artworkUrl+' />'
+  });
+
 });
