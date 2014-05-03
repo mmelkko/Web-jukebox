@@ -14,16 +14,16 @@ function toggleplayer()
   })
 }
 
+
 // Here's a good start for communication w/ HTTP requests!
 function gettime()
 {
-//  alert("placeholder");
   var xmlHttp = null;
+  var sURL = 'http://localhost:3000/timer/test?' + (new Date()).getTime(); //unique timestamp prevents caching
 
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "http://localhost:3000/timer/now", false );
-    xmlHttp.send( null );
-//    return xmlHttp.responseText;
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", sURL, false );
+  xmlHttp.send( null );
   alert(xmlHttp.responseText);
 }  
 
@@ -60,8 +60,9 @@ $(document).ready(function() {
 	widget1.bind(SC.Widget.Events.READY, function(){
 		widget1.play();
 	});
+
 	widget1.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
-       if(eventData.relativePosition > 0.95)alert("aika lopussa ollaan hei nyt");
-       //alert(eventData.relativePosition);
+      //for testing purposes
+      if(eventData.relativePosition > 0.95)gettime();
     });
 });
