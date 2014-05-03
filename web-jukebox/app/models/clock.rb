@@ -1,3 +1,3 @@
-class Timer < ActiveRecord::Base
+class Clock < ActiveRecord::Base
   belongs_to :room
 end
