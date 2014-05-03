@@ -10,6 +10,10 @@ SC.initialize({
   client_id: '86898a442cab8a6489b73d3e8d927acf'
 });
 
+var iframeElement = document.querySelector('iframe');
+var iframeElementID = iframeElement.id;
+var widget1 = SC.Widget(iframeElement);
+
 function search()
 {
   var searchQ = document.getElementById("searchForm").value;
@@ -21,9 +25,7 @@ function search()
 
 function toggleplayer()
 {
-  var iframeElement   = document.querySelector('iframe');
-  var iframeElementID = iframeElement.id;
-  var widget1         = SC.Widget(iframeElement);
+  
   
   widget1.toggle();
 
@@ -35,9 +37,7 @@ function toggleplayer()
 //get sound object, parse useful data from json to string vars
 function getsound()
 {
-  var iframeElement   = document.querySelector('iframe');
-  var iframeElementID = iframeElement.id;
-  var widget1         = SC.Widget(iframeElement);
+  
 
   widget1.getCurrentSound(function(sound) {
     //print to console
@@ -68,9 +68,7 @@ function getsound()
 
 function getAlbumArtwork()
 {
-  var iframeElement   = document.querySelector('iframe');
-  var iframeElementID = iframeElement.id;
-  var widget1         = SC.Widget(iframeElement);
+  
 
   widget1.getCurrentSound(function(sound) {
     var waveformUrl = sound.waveform_url;
@@ -96,9 +94,7 @@ function gettime()
 
 function nextsong()
 {
-  var iframeElement   = document.querySelector('iframe');
-  var iframeElementID = iframeElement.id;
-  var widget1         = SC.Widget(iframeElement);
+  
   
   //kovakoodattu, hoh hoi
   var newTrackId      = 138087598;
@@ -124,10 +120,6 @@ function nextsong()
 $(document).ready(function() {
 
   //bind listeners
-  var iframeElement = document.querySelector('iframe');
-	var iframeElementID = iframeElement.id;
-	var widget1 = SC.Widget(iframeElement);
-	
 	widget1.bind(SC.Widget.Events.READY, function(){
 		widget1.play();
 	});
