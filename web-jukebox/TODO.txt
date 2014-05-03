@@ -13,6 +13,8 @@ Must-do:
 - (ennen palautusta) developer optionsit vittuun
 
 Should-do:
+- sessio siten, ettei voi lisätä useita biisejä jonoon saman tien
+    + sessioon lasku siihen että milloin voi lisätä uuden biisin
 - refaktorointi: play-queue vittuun, songit suoraan roomissa (mevi)
 - Koko sivun ulkonäön parantaminen
 - exceptioneista huolehtiminen: käyttäjävirheet ei saa rikkoa palvelua
