@@ -25,10 +25,7 @@ function search()
 
 function toggleplayer()
 {
-  
-  
   widget1.toggle();
-
   widget1.getCurrentSound(function(sound) {
     //alert(sound.title);
   })
@@ -37,8 +34,6 @@ function toggleplayer()
 //get sound object, parse useful data from json to string vars
 function getsound()
 {
-  
-
   widget1.getCurrentSound(function(sound) {
     //print to console
     console.log(sound);
@@ -68,8 +63,6 @@ function getsound()
 
 function getAlbumArtwork()
 {
-  
-
   widget1.getCurrentSound(function(sound) {
     var waveformUrl = sound.waveform_url;
     var artworkUrl = sound.artwork_url;
@@ -94,8 +87,6 @@ function gettime()
 
 function nextsong()
 {
-  
-  
   //kovakoodattu, hoh hoi
   var newTrackId      = 138087598;
 
