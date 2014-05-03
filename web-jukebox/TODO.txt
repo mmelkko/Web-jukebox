@@ -3,6 +3,7 @@ Doing ATM:
 
 Must-do:
 - biisien ottaminen tietokannasta widgettiin
+- biisien poistaminen roomin managessa sitten kun timeri ilmoittaa että homma on valmis (onko tässä synkkaongelma?)
 - timerin hakeminen javascriptistä
 - web-jukebox internettiin
     + herokun pystyttäminen
@@ -15,5 +16,5 @@ Should-do:
 - Koko sivun ulkonäön parantaminen
 
 Could-do:
-
+- turhien filujen poistaminen (esim. kaikki welcome-filut)
 
