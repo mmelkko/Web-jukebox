@@ -81,7 +81,7 @@ class RoomsController < ApplicationController
 
     logger.info("Client: %p" % @client)
 
-    track = @client.get("/tracks/138087598")
+    track = @client.get("/tracks/141223754")
     @room.clock.duration = track.duration
 
     @room.clock.start = Time.now
