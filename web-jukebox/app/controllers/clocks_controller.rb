@@ -1,6 +1,8 @@
-class ClockController < ApplicationController
+class ClocksController < ApplicationController
+  require 'timers'
+
   def now
-  	@timer = Clock.find(params[:clock])
+  	@timer = Clock.find(params[:id])
 
   	now = Time.now
   	song_time = now - @timer.start
@@ -12,10 +14,12 @@ class ClockController < ApplicationController
   end
 
   def time_song
-  	@clock = Clock.find(params[:timer])
+  	@clock = Clock.find(params[:id])
 
-  	timer = Timer.new
-  	song_timer = time.after((self.duration/1000)) { render text: "Song ended now!" }
+  	timers = Timers.new
+  	song_timer = timers.after((@clock.duration/1000)) { render text: "Song ended now!" }
+
+    render :nothing => true
   end
 
   private
