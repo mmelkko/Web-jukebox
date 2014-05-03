@@ -1,9 +1,8 @@
 Doing ATM:
-- soundcloudista tietojen hakemista rubylla controllereissa (mevi)
+- biisien poistaminen roomin managessa sitten kun timeri ilmoittaa että homma on valmis (onko tässä synkkaongelma?) (mevi)
 
 Must-do:
 - biisien ottaminen tietokannasta widgettiin
-- biisien poistaminen roomin managessa sitten kun timeri ilmoittaa että homma on valmis (onko tässä synkkaongelma?)
 - timerin hakeminen javascriptistä
 - web-jukebox internettiin
     + herokun pystyttäminen
