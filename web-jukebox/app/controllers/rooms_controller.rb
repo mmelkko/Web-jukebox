@@ -2,6 +2,11 @@ class RoomsController < ApplicationController
 
   require 'soundcloud'
 
+  before_filter :set_client, :except => [:create, :update, :destroy, :index]
+  def set_client
+    @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
+  end
+
   # GET /rooms
   # GET /rooms.json
   def index
@@ -46,8 +51,6 @@ class RoomsController < ApplicationController
   end
 
   def register_client
-    @room = Room.find(params[:id])
-    
     # register a client with YOUR_CLIENT_ID as client_id_
     # YOUR_CLIENT_ID = 86898a442cab8a6489b73d3e8d927acf
     @client = SoundCloud.new({
@@ -74,7 +77,11 @@ class RoomsController < ApplicationController
 
     # TODO: poista atm soiva biisi
 
-    track = @client.get("/tracks/#{@room.play_queue.songs.first.id}")
+    @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
+
+    logger.info("Client: %p" % @client)
+
+    track = @client.get("/tracks/138087598")
     @room.clock.duration = track.duration
 
     @room.clock.start = Time.now
