@@ -139,10 +139,11 @@ $(document).ready(function() {
     var artist = sound.user.username;
     var artistAvatarUrl = sound.user.avatar_url;
     
-//    alert(artist + ' - ' + title);
-
     var albumArtWrapper = document.getElementById("albumArt");
-    albumArtWrapper.innerHTML = '<img src='+artworkUrl+' />'
+    albumArtWrapper.innerHTML = '<img src='+artworkUrl+' width="300" height="300" />'
+
+    var songDataWrapper = document.getElementById("songData");
+    songDataWrapper.innerHTML = '<h3>' + artist + '</h3><h2>' + title + '</h2>';
   });
 
 });
