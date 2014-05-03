@@ -78,13 +78,11 @@ class RoomsController < ApplicationController
     # TODO: poista atm soiva biisi
 
     @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
-
-    logger.info("Client: %p" % @client)
-
     track = @client.get("/tracks/141223754")
+    
     @room.clock.duration = track.duration
-
     @room.clock.start = Time.now
+    @room.clock.save
 
     redirect_to time_song_room_clock_path(@room, @room.clock)
 
