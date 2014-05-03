@@ -8,5 +8,5 @@
 theme = Theme.create(name: "Rock'n'Roll")
 queue = PlayQueue.create()
 queue.songs.create(soundcloud_id: "10597436")
-timer = Timer.create(start: Time.now, duration: "10000")
-home = Room.create(theme: theme, play_queue: queue, timer: timer)
+clock = Clock.create(start: Time.now, duration: "10000")
+home = Room.create(theme: theme, play_queue: queue, clock: clock)
