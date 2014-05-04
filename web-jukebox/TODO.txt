@@ -5,8 +5,8 @@ Must-do:
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
 - about us, terms of service etc
-- synkkaa client ja serveri
-- fiksaa search / add new track toiminnallisuus ja UI
+- synkkaa client ja serveri (alustavasti jukka)
+- fiksaa search / add new track toiminnallisuus ja UI (alustavasti jukka)
 
 Should-do:
 - sessio siten, ettei voi lisätä useita biisejä jonoon saman tien
@@ -16,4 +16,4 @@ Should-do:
 - jos jonossa ei oo ainootakaan biisiä, etitään joku biisi esim teemaan liittyen
 - vaihtuvia teemoja
 - rooms.js ajaa myös etusivulla - pitäis saada silleen että intervallijutut tehdään vaan rooms showssa
-- tarkistus että track on streamable ennen kun sen hyväksyy formissa
+- tarkistus että track on streamable ennen kun sen hyväksyy formissa - tän pystyy tekee jo search-vaiheessa!
