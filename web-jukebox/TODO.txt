@@ -1,5 +1,4 @@
 Doing ATM:
-- soundcloud search (jukka)
 - herokun pystyttäminen (nico)
 - biisin tietojen päivittäminen sivulle (mevi)
 
@@ -7,7 +6,6 @@ Must-do:
 - biisien ottaminen javascriptista playeriin
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
-- korjaa 429 response errorit, jotka johtuu SC + Widget-yhdistelmän alustamisesta
 - (ennen palautusta) developer optionsit vittuun
 
 Should-do:
