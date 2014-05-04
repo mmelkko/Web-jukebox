@@ -50,33 +50,42 @@ class RoomsController < ApplicationController
     end
   end
 
-  def manage
+  # POST time
+  def time
     @room = Room.find(params[:id])
+    elapsed = Time.now - @room.clock.start
+    time = (@room.clock.duration - elapsed)
 
-    begin
+    if time < 1000 # time is milliseconds, so...
+      time = 0
 
-      @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
+      # trying to fetch the duration of the next song from soundcloud.
+      begin
+        @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
 
-      unless @room.play_queue.songs.first.blank?
-        @room.play_queue.songs.first.destroy
+        unless @room.play_queue.songs.first.blank?
+          @room.play_queue.songs.first.destroy
+        end
+
+        # TODO: what if there is no song in the queue
+        # TODO: getting the next song from the queue to the widget player
+
+        unless @room.play_queue.songs.first.blank? # if there's no song, let's not do anything
+
+          track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
+
+          @room.clock.duration = track.duration
+          @room.clock.start = Time.now
+          @room.clock.save
+        end
+
+      rescue SoundCloud::ResponseError
+        retry
+
       end
-
-      unless @room.play_queue.songs.first.blank? # jos ei oo biisii ei tehä mitään
-
-        track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
-
-        @room.clock.duration = track.duration
-        @room.clock.start = Time.now
-        @room.clock.save
-
-        redirect_to time_song_room_clock_path(@room, @room.clock)
-
-      end
-
-    rescue SoundCloud::ResponseError
-      retry
-
     end
+
+    render text: "#{time}"
 
   end
 

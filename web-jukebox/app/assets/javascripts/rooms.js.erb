@@ -159,19 +159,25 @@ $(document).ready(function() {
 });
 
 
-setInterval(check_time, 1000);
+setInterval(check_time, 10000);
 
 function check_time(){
 
   var url = document.URL;
   var array = url.split("/");
 
-  $.ajax(array[array.length-2] + '/' + array[array.length-1] + '/time', {
+  $.ajax({
+    url: '/'+array[array.length-2]+'/'+array[array.length-1]+'/time',
     type: 'POST',
     success: function(result) {
-      alert("Success");
+      if(result > 0) {
+        alert("I can tell what this result is all about!");
+      } else {
+        alert("wtf");
+      }
+    },
     error: function() {
-      alert("Error");
+      // alert("Error");
     }
   });
 }
