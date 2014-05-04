@@ -17,3 +17,81 @@ Should-do:
 - rooms.js ajaa myös etusivulla - pitäis saada silleen että intervallijutut tehdään vaan rooms showssa
 - tarkistus että track on streamable ennen kun sen hyväksyy formissa
 
+
+
+5 valid tracks
+
+artwork url
+duration
+id
+permalink url
+title
+user.username
+
+
+
+artwork_url
+	null
+duration
+	211671	
+id
+	35554347
+permalink_url
+	"http://soundcloud.com/doodybass/doody-bass-flub-dub"
+title
+	"Doody Bass- Flub Dub"	
+username
+	"Doody Bass"
+
+	
+artwork_url
+	"http://i1.sndcdn.com/artworks-000037584432-6688t4-large.jpg?61e8f21"	
+duration
+	219527		
+id
+	73653370
+permalink_url
+	"http://soundcloud.com/skrillex/skrillex-scary-bolly-dub"	
+title
+	"Skrillex - Scary Bolly Dub"	
+username
+	"Skrillex"
+	
+artwork_url
+	"http://i1.sndcdn.com/artworks-000007216039-ur90yq-large.jpg?61e8f21"	
+duration
+	293282		
+id
+	15188186
+permalink_url
+	"http://soundcloud.com/dubmatix/bob-marley-is-this-love"	
+title
+	"Bob Marley Is this Love (Dubmatix Re-Visioned)"	
+username
+	"dubmatix"
+
+artwork_url
+	"http://i1.sndcdn.com/artworks-000063700391-hph90l-large.jpg?61e8f21"	
+duration
+	468993		
+id
+	121864561
+permalink_url
+	"http://soundcloud.com/marckinchen/shadow-child-friday-feat-takura-mk-medicine-dub"	
+title
+	"Shadow Child feat Takura - Friday (MK Medicine Dub)"	
+username
+	"MK (Marc Kinchen)"
+
+artwork_url
+	"http://i1.sndcdn.com/artworks-000009442684-7zgvh4-large.jpg?61e8f21"	
+duration
+	367186	
+id
+	19306001	
+permalink_url
+	"http://soundcloud.com/beyoncemusic/best-thing-i-never-had-dj"	
+title
+	"Best Thing I Never Had [DJ Escape & Tony Coluccio Dub Remix]"	
+username
+	"Beyoncé"
