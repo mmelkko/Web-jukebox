@@ -3,7 +3,6 @@ Doing ATM:
 - biisin tietojen päivittäminen sivulle (mevi)
 
 Must-do:
-- biisien ottaminen javascriptista playeriin
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
 - (ennen palautusta) developer optionsit vittuun
