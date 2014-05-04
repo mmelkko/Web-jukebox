@@ -23,18 +23,6 @@ class RoomsController < ApplicationController
     # in a modal page and go through the controller also. Try google it - no way unless
     # you do super javascript trix
 
-    if @room.clock.start.nil?
-      @room.clock.start = Time.now.utc
-      
-      unless @room.play_queue.songs.first.blank?
-        @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
-        track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
-        @room.clock.duration = track.duration
-      else
-        # TODO what if there's no song in the queue
-      end
-    end
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @room }
@@ -68,7 +56,7 @@ class RoomsController < ApplicationController
       time_left = 0
     end
 
-    render text: "#{time_left}"
+    render text: "#{@room.clock.start > 0 ? time_left : 0}"
   end
 
   # POST next song soundcloud id and remove previous song
@@ -80,8 +68,9 @@ class RoomsController < ApplicationController
         @room.play_queue.songs.first.destroy
       else
         @room.play_queue.songs.create(soundcloud_id: "106181677")
-        @room.play_queue.save
       end
+
+      @room.play_queue.save
 
       @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
       track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
