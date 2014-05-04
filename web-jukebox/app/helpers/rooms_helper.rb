@@ -11,7 +11,6 @@ module RoomsHelper
         begin
           track = client.get("/tracks/#{song.soundcloud_id}")
           seconds += track.duration/1000
-          logger.info("**** the queue is #{seconds} seconds ****")
         rescue SoundCloud::ResponseError => e
           logger.error("***** #{e}: #{e.response} for track id #{song.soundcloud_id} ******")
           warning "at least"

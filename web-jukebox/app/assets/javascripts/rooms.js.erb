@@ -85,8 +85,9 @@ $(document).ready(function() {
 
 });
 
-
+// all the intervals are here
 setInterval(check_time, 1000);
+setInterval(refresh_queue_info, 60000);
 
 function room_URL() {
   var url = document.URL;
@@ -117,10 +118,14 @@ function get_next_song(){
     url: room_URL() + '/next_song',
     type: 'POST',
     success: function(result) {
-      alert("I got the soundcloud id of the next song! It's " + result + ". Please play it now :)");
+      //alert("I got the soundcloud id of the next song! It's " + result + ". Please play it now :)");
     },
     error: function() {
       // alert("Error");
     }
   });
+}
+
+function refresh_queue_info() {
+  $('#countdown').load(document.URL + ' #countdown');
 }
