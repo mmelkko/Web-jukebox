@@ -159,7 +159,7 @@ $(document).ready(function() {
 });
 
 
-setInterval(check_time, 10000);
+setInterval(check_time, 1000);
 
 function check_time(){
 
@@ -167,13 +167,11 @@ function check_time(){
   var array = url.split("/");
 
   $.ajax({
-    url: '/'+array[array.length-2]+'/'+array[array.length-1]+'/time',
+    url: '/' + array[array.length-2] + '/' + array[array.length-1] + '/time',
     type: 'POST',
     success: function(result) {
-      if(result > 0) {
-        alert("I can tell what this result is all about!");
-      } else {
-        alert("wtf");
+      if(result == 0) {
+        alert("THE SONG IS DONEEEE PLS DO SOMETHINGGGG");
       }
     },
     error: function() {

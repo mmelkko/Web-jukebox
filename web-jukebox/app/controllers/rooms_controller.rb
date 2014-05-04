@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
     # you do super javascript trix
 
     if @room.clock.start.nil?
-      @room.clock.start = Time.now
+      @room.clock.start = Time.now.utc
       
       unless @room.play_queue.songs.first.blank?
         @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
@@ -65,11 +65,10 @@ class RoomsController < ApplicationController
   # POST time
   def time
     @room = Room.find(params[:id])
-    elapsed = Time.now - @room.clock.start
-    time = (@room.clock.duration - elapsed)
+    time_left = @room.clock.duration-(Time.now.utc.to_i-@room.clock.start)
 
-    if time < 1000 # time is milliseconds, so...
-      time = 0
+    if time_left < 1000 # time is milliseconds, so...
+      time_left = 0
 
       # trying to fetch the duration of the next song from soundcloud.
       begin
@@ -87,7 +86,7 @@ class RoomsController < ApplicationController
           track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
 
           @room.clock.duration = track.duration
-          @room.clock.start = Time.now
+          @room.clock.start = Time.now.utc
           @room.clock.save
         end
 
@@ -97,7 +96,7 @@ class RoomsController < ApplicationController
       end
     end
 
-    render text: "#{time}"
+    render text: "#{time_left}"
 
   end
 
