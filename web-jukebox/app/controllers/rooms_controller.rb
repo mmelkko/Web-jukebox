@@ -62,7 +62,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     time_left = @room.clock.duration-(Time.now.utc.to_i-@room.clock.start)
 
-    logger.info("***** There is #{time_left} time left. The duration of this song is #{@room.clock.duration}. *****")
+    logger.info("***** There is #{time_left} time left until this song ends. *****")
 
     if time_left < 1
       time_left = 0
