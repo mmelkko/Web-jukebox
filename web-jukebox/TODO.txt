@@ -1,10 +1,10 @@
 Doing ATM:
 - soundcloud search (jukka)
 - herokun pystyttäminen (nico)
-- handlaus sille ees jotenkin että mitä jos jonossa ei oo ainootakaan biisiä (mevi)
+- biisien ottaminen tietokannasta javascriptiin (mevi)
 
 Must-do:
-- biisien ottaminen tietokannasta playeriin
+- biisien ottaminen javascriptista playeriin
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
 - (ennen palautusta) developer optionsit vittuun
