@@ -2,11 +2,6 @@ class RoomsController < ApplicationController
 
   require 'soundcloud'
 
-  before_filter :set_client, :except => [:create, :update, :destroy, :index]
-  def set_client
-    @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
-  end
-
   # GET /rooms
   # GET /rooms.json
   def index
