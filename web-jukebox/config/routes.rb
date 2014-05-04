@@ -3,8 +3,8 @@ WebJukebox::Application.routes.draw do
   resources :rooms do
 
     member do
-      get 'register_client'
       post 'time'
+      post 'next_song'
     end
     
     resources :play_queues do

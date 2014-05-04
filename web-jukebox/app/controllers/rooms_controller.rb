@@ -66,30 +66,34 @@ class RoomsController < ApplicationController
 
     if time_left < 1
       time_left = 0
+    end
 
-      begin
-        unless @room.play_queue.songs.first.blank?
-          @room.play_queue.songs.first.destroy
-        else
-          @room.play_queue.songs.create(soundcloud_id: "106181677")
-          @room.play_queue.save
-        end
+    render text: "#{time_left}"
+  end
 
-        # TODO: getting the next song from the queue to the widget player
-
-        @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
-        track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
-
-        @room.clock.duration = track.duration/1000
-        @room.clock.start = Time.now.utc
-        @room.clock.save
-
-      rescue SoundCloud::ResponseError
-        retry
+  # POST next song soundcloud id and remove previous song
+  def next_song
+    @room = Room.find(params[:id])
+    
+    begin
+      unless @room.play_queue.songs.first.blank?
+        @room.play_queue.songs.first.destroy
+      else
+        @room.play_queue.songs.create(soundcloud_id: "106181677")
+        @room.play_queue.save
       end
 
+      @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
+      track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
+    rescue SoundCloud::ResponseError
+      retry
     end
-    render text: "#{time_left}"
+
+    @room.clock.duration = track.duration/1000
+    @room.clock.start = Time.now.utc
+    @room.clock.save
+
+    render text: "#{@room.play_queue.songs.first.soundcloud_id}"
   end
 
   private

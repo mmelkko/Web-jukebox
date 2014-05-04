@@ -88,18 +88,36 @@ $(document).ready(function() {
 
 setInterval(check_time, 1000);
 
-function check_time(){
-
+function room_URL() {
   var url = document.URL;
   var array = url.split("/");
 
+  return '/' + array[array.length-2] + '/' + array[array.length-1]
+}
+
+function check_time(){
+
   $.ajax({
-    url: '/' + array[array.length-2] + '/' + array[array.length-1] + '/time',
+    url: room_URL() + '/time',
     type: 'POST',
     success: function(result) {
       if(result == 0) {
-        alert("THE SONG IS DONEEEE PLS DO SOMETHINGGGG");
+        get_next_song()
       }
+    },
+    error: function() {
+      // alert("Error");
+    }
+  });
+}
+
+function get_next_song(){
+
+  $.ajax({
+    url: room_URL() + '/next_song',
+    type: 'POST',
+    success: function(result) {
+      alert("I got the soundcloud id of the next song! It's " + result + ". Please play it now :)");
     },
     error: function() {
       // alert("Error");
