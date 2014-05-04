@@ -65,12 +65,13 @@ class RoomsController < ApplicationController
     
     begin
       unless @room.play_queue.songs.first.blank?
-        @room.play_queue.songs.first.destroy
+        @room.play_queue.songs.delete(@room.play_queue.songs.first)
       else
         @room.play_queue.songs.create(soundcloud_id: "106181677")
       end
 
       @room.play_queue.save
+      @room.save
 
       @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
       track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
