@@ -133,6 +133,8 @@ function get_next_song(){
     success: function(result) {
       //alert("I got the soundcloud id of the next song! It's " + result + ". Please play it now :)");
       widget1.load("https%3A//api.soundcloud.com/tracks/" + result + "&auto_play=true&hide_related=false&visual=true");
+      refresh_queue_info()
+      $('#info').load(document.URL + ' #info');
     },
     error: function() {
       // alert("Error");
