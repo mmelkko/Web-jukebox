@@ -68,10 +68,20 @@ class RoomsController < ApplicationController
         @room.play_queue.songs.delete(@room.play_queue.songs.first)
         @room.play_queue.songs.first.destroy
         if @room.play_queue.songs.first.blank?
-          @room.play_queue.songs.create(soundcloud_id: "123214393")
+          @room.play_queue.songs.create(soundcloud_id: "19306001",
+            image_url: "http://i1.sndcdn.com/artworks-000009442684-7zgvh4-large.jpg?61e8f21",
+            url: "http://soundcloud.com/beyoncemusic/best-thing-i-never-had-dj",
+            name: "Best Thing I Never Had [DJ Escape & Tony Coluccio Dub Remix]",
+            creator: "Beyonce",
+            duration: 367186)
         end
       else
-        @room.play_queue.songs.create(soundcloud_id: "106181677")
+        @room.play_queue.songs.create(soundcloud_id: "19306001",
+          image_url: "http://i1.sndcdn.com/artworks-000009442684-7zgvh4-large.jpg?61e8f21",
+          url: "http://soundcloud.com/beyoncemusic/best-thing-i-never-had-dj",
+          name: "Best Thing I Never Had [DJ Escape & Tony Coluccio Dub Remix]",
+          creator: "Beyonce",
+          duration: 367186)
       end
 
       @room.play_queue.save 
