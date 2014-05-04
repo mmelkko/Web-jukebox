@@ -1,11 +1,9 @@
 Doing ATM:
 - herokun pystyttäminen (nico)
-- biisin tietojen päivittäminen sivulle (mevi)
 
 Must-do:
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
-- (ennen palautusta) developer optionsit vittuun
 - about us, terms of service etc
 - synkkaa client ja serveri
 - fiksaa search / add new track toiminnallisuus ja UI
