@@ -17,3 +17,4 @@ Should-do:
 - vaihtuvia teemoja
 - rooms.js ajaa myös etusivulla - pitäis saada silleen että intervallijutut tehdään vaan rooms showssa
 - tarkistus että track on streamable ennen kun sen hyväksyy formissa - tän pystyy tekee jo search-vaiheessa!
+- sen sijaan että clock.duration haetaan soundcloudista sen sais song.durationista!!
