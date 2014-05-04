@@ -1,15 +1,15 @@
 Doing ATM:
-- biisien poistaminen roomin managessa sitten kun timeri ilmoittaa että homma on valmis (onko tässä synkkaongelma?) (mevi)
 - soundcloud search (jukka)
+- completely new way to do timer: (mevi)
+    + javascript call ajax on intervals: how to get current room and call clock function in ajax?
 
 Must-do:
 - biisien ottaminen tietokannasta widgettiin
-- timerin hakeminen javascriptistä
+- handlaus sille että mitä jos jonossa ei oo ainootakaan biisiä
 - web-jukebox internettiin
     + herokun pystyttäminen
     + soundcloudista kaikki tarvittavat tiedot aina room.showssa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
-- handlaus sille että mitä jos jonossa ei oo ainootakaan biisiä
 - (ennen palautusta) developer optionsit vittuun
 
 Should-do:
@@ -18,7 +18,4 @@ Should-do:
 - refaktorointi: play-queue vittuun, songit suoraan roomissa (mevi)
 - Koko sivun ulkonäön parantaminen
 - exceptioneista huolehtiminen: käyttäjävirheet ei saa rikkoa palvelua
-
-Could-do:
-- turhien filujen poistaminen (esim. kaikki welcome-filut)
 
