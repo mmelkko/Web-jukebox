@@ -157,3 +157,21 @@ $(document).ready(function() {
   });
 
 });
+
+
+setInterval(check_time, 1000);
+
+function check_time(){
+
+  var url = document.URL;
+  var array = url.split("/");
+
+  $.ajax(array[array.length-2] + '/' + array[array.length-1] + '/time', {
+    type: 'POST',
+    success: function(result) {
+      alert("Success");
+    error: function() {
+      alert("Error");
+    }
+  });
+}
