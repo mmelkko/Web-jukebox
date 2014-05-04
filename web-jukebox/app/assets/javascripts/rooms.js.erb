@@ -21,13 +21,17 @@ function search()
     tracklist = tracks;
     var newId = tracks[0].id;
     widget1.load("https%3A//api.soundcloud.com/tracks/" + newId + "&auto_play=true&hide_related=false&visual=true");
+    updateList(tracks);
   });
-
 }
 
 function updateList(tracks){
   //update HTML DOM element directly
   //get an element, empty it, loop through tracks, make a <li> for each track
+  //or something
+
+  //testing. 
+  console.log(tracks);
 }
 
 function toggleplayer()
