@@ -1,5 +1,5 @@
 class AddRoomIdToTimers < ActiveRecord::Migration
-  def change
+  def up
   	drop_table :timers
 
     create_table :timers do |t|
@@ -9,4 +9,16 @@ class AddRoomIdToTimers < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def down
+  	drop_table :timers
+
+  	create_table :timers do |t|
+      t.integer :start
+      t.integer :duration
+
+      t.timestamps
+    end
+  end
+
 end
