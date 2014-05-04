@@ -18,7 +18,6 @@ module RoomsHelper
       end
     end
 
-    seconds -= (Time.now.utc.to_i-@room.clock.start)
     minutes = (seconds/60).round
     hours = (minutes/60).floor
 
@@ -37,6 +36,13 @@ module RoomsHelper
     end
 
     return "The Queue is #{warning} #{h} #{m} long."
+  end
+
+  def right_image_url song
+    unless song.image_url.nil?
+      array = song.image_url.split("large")
+      return array[0] + "t500x500" + array[1]
+    end
   end
 
 end
