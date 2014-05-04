@@ -1,8 +1,8 @@
 .small-8.large-centered.columns
 
-  .header.small-12.columns
+  .header.small-12.columns#countdown
     %h1= "#{@room.theme.name} Jukebox"
-    %p= "There are #{@room.play_queue.songs.count} Song(s) in the Queue. The Queue is n minutes long."
+    %p= "There are #{@room.play_queue.songs.count} Song(s) in the Queue. #{queue_time(@room)}"
 
   .player.small-12.columns
     .small-5.columns#albumArt
