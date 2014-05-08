@@ -70,8 +70,31 @@ function gettime()
   alert(document.URL);
 }
 
+function getServerTime()
+{
+  var xmlHttp = null;
+  var sURL = 'http://localhost:3000/rooms/1/clocks/1/now?' + (new Date()).getTime(); //unique timestamp prevents caching
+
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", sURL, false );
+  xmlHttp.send( null );
+  //oh for fuck's sake
+  var dateTime = xmlHttp.responseText;
+  var serverTimeArr = dateTime.split(" ");
+  var serverTime1 = serverTimeArr[1];
+  var stArr = serverTime1.split(":");
+  var serverTimeStr = stArr[1].concat(":").concat(stArr[2]);
+
+  var serverTimeMilliseconds = 1000 * (stArr[1]*60) + 1000 * stArr[2];
+
+  return serverTimeMilliseconds;
+  //current document URL!
+  //alert(document.URL);
+}
+
 function getTrackId()
 {
+  //TODO something fucked up here
   var xmlHttp = null;
   var sURL = 'http://localhost:3000/rooms/1/play_queues/1/songs/1.json';
 
@@ -104,15 +127,14 @@ function nextsong()
 $(document).ready(function() {
 
 var serverTrackId = getTrackId();
+var serverTime = getServerTime();
 widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
+widget1.seekTo(10000);
+alert (serverTime);
 
-alert("js works right");
-	widget1.bind(SC.Widget.Events.READY, function(){
-    alert ("fhofhos");
-    widget1.play(); 
-    alert ("ey yo yo");
-    
-  });
+//	widget1.bind(SC.Widget.Events.READY, function(){
+//    widget1.play();
+//  });
   
   widget1.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
     //for testing purposes, probably not needed anymore.
