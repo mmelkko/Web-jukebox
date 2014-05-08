@@ -1,11 +1,11 @@
 Doing ATM:
 - herokun pystyttäminen (nico)
+- synkkaa client ja serveri (jukka)
 
 Must-do:
 - varmistus että sivulla on aina tiedot mitä soundcloud vaatii että saadaan soittaa
 - selvitys siitä mitä täytyy tehdä loppudokkariin tai vastaavaan ja sen listaamista tänne
 - about us, terms of service etc
-- synkkaa client ja serveri (alustavasti jukka)
 - fiksaa search / add new track toiminnallisuus ja UI (alustavasti jukka)
 
 Should-do:
