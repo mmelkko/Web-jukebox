@@ -1,3 +1,4 @@
+- content_for(:title, "#{@room.theme.name}")
 .small-8.large-centered.columns
 
   .header.small-12.columns
@@ -17,7 +18,11 @@
   .options.small-12.columns
     .small-5.columns
       #reveal-button.button.expand.success{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a Song to the Queue
-
+  .options.small-12.columns
+    .links.small-12.columns
+      = link_to "About Us", page_path("about")
+    .links.small-12.columns
+      = link_to "Terms of use", page_path("terms")
 -# Modal
 #add-song-modal.reveal-modal.modal.small{"data-reveal" => ""}
   .row

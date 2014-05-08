@@ -1,3 +1,4 @@
+- content_for(:title, 'Web Jukebox')
 .small-8.large-centered.columns
 
   .header.small-12.columns
@@ -16,8 +17,8 @@
     .room.small-4.columns
       = placeholdit_image_tag "250", text: "Placeholder Room Theme", background_color: "#ffc900", text_color: "#ff9200"
     -# ***PLACEHOLDERS END*** remove once there are more rooms
-
-  .links.small-12.columns
-    = link_to "About Us", page_path("about")
-  .links.small-12.columns
-    = link_to "Terms of use", page_path("terms")
+  .header.small-12.columns
+    .links.small-12.columns
+      = link_to "About Us", page_path("about")
+    .links.small-12.columns
+      = link_to "Terms of use", page_path("terms")
