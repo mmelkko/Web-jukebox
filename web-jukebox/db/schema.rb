@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140504151312) do
+ActiveRecord::Schema.define(:version => 20140504180530) do
 
   create_table "clocks", :force => true do |t|
     t.integer  "start"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140504151312) do
     t.string   "url"
     t.string   "creator"
     t.string   "name"
+    t.integer  "duration"
   end
 
   create_table "themes", :force => true do |t|

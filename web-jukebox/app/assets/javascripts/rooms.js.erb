@@ -17,7 +17,7 @@ function search()
 {
   var searchQ = document.getElementById("searchForm").value;
   
-  SC.get('/tracks', { q: searchQ }, function(tracks) {
+  SC.get('/tracks?' + (new Date()).getTime(), { q: searchQ }, function(tracks) {
     tracklist = tracks;
     var newId = tracks[0].id;
     widget1.load("https%3A//api.soundcloud.com/tracks/" + newId + "&auto_play=true&hide_related=false&visual=true");
@@ -32,6 +32,15 @@ function updateList(tracks){
 
   //testing. 
   console.log(tracks);
+
+  //not pretty but works yes
+  var element = document.getElementById("tracklist");
+  //element.innerHTML = '<li>' + tracklist[0].title + '</li><li>' + tracklist[1].title + '</li><li>' + tracklist[2].title + '</li><li>' + tracklist[3].title + '</li><li>' + tracklist[4].title + '</li>';
+  var newInner = '';
+  for (var i=0; i<5; i++){
+    newInner += '<li>' + tracklist[i].title + '</li>';
+  }
+  element.innerHTML = newInner;
 }
 
 function toggleplayer()
@@ -124,6 +133,8 @@ function get_next_song(){
     success: function(result) {
       //alert("I got the soundcloud id of the next song! It's " + result + ". Please play it now :)");
       widget1.load("https%3A//api.soundcloud.com/tracks/" + result + "&auto_play=true&hide_related=false&visual=true");
+      refresh_queue_info()
+      $('#info').load(document.URL + ' #info');
     },
     error: function() {
       // alert("Error");

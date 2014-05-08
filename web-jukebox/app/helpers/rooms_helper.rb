@@ -42,6 +42,8 @@ module RoomsHelper
     unless song.image_url.nil?
       array = song.image_url.split("large")
       return array[0] + "t500x500" + array[1]
+    else
+      return "albumart.jpg"
     end
   end
 
