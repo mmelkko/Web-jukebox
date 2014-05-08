@@ -17,7 +17,7 @@ WebJukebox::Application.routes.draw do
       end
     end
   end
-
+  
   get "clock/test"
 
   # The priority is based upon order of creation:
