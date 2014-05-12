@@ -38,9 +38,13 @@ function updateList(tracks){
   //element.innerHTML = '<li>' + tracklist[0].title + '</li><li>' + tracklist[1].title + '</li><li>' + tracklist[2].title + '</li><li>' + tracklist[3].title + '</li><li>' + tracklist[4].title + '</li>';
   var newInner = '';
   for (var i=0; i<5; i++){
-    newInner += '<li>' + tracklist[i].title + '</li>';
+    newInner += '<input type="radio" name="song" value="' + tracklist[i].id + '">' + tracklist[i].title + '</input><br/>';
   }
   element.innerHTML = newInner;
+}
+
+function submit(){
+  
 }
 
 function toggleplayer()
