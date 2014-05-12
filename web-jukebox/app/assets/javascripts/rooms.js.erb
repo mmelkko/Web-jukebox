@@ -48,9 +48,32 @@ function checkSelected(){
 }
 
 function submit(){  
-  var label = $('label:contains("Soundcloud id")');
-  var element = document.getElementsByTagName('input')[0];
-  element.value = $('input[name="song"]:checked').val();
+  //var label = document.getElementById('troll');
+  //alert(label);
+  var inputs = document.getElementsByTagName('input');
+  var inputti;
+  for(var i = 0; i<inputs.length; i++)
+  {
+	var id = inputs[i].id;
+	if(id != "")
+	{
+	
+		var check = id.split("_");
+
+		if(check.length > 2)
+		{
+		
+			if(check[check.length-2] == "soundcloud")
+			{
+				inputti = inputs[i];
+			}
+		}
+	}
+  }
+  
+  //alert(inputs.length);
+  //var element = document.getElementsByTagName('input')[0];
+  inputti.value = $('input[name="song"]:checked').val();
   document.getElementById("addSong").click();
 }
 
@@ -108,7 +131,6 @@ function getTrackId()
   //TODO something fucked up here
   var xmlHttp = null;
   var sURL = 'http://localhost:3000/rooms/1/play_queues/1/songs/1.json';
-
   xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", sURL, false );
   xmlHttp.send( null );
@@ -136,7 +158,6 @@ function nextsong()
 
 //when document is loaded
 $(document).ready(function() {
-
 var serverTrackId = getTrackId();
 var serverTime = getServerTime();
 widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
