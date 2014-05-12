@@ -18,11 +18,13 @@
   .options.small-12.columns
     .small-5.columns
       #reveal-button.button.expand.success{data: {"reveal-id" => "add-song-modal", "reveal" => ""}} Add a Song to the Queue
-  .options.small-12.columns
+  .header.small-12.columns
     .links.small-12.columns
       = link_to "About Us", page_path("about")
     .links.small-12.columns
       = link_to "Terms of use", page_path("terms")
+    .links.small-12.columns
+      = link_to "FAQ", page_path("FAQ")
 -# Modal
 #add-song-modal.reveal-modal.modal.small{"data-reveal" => ""}
   .row
