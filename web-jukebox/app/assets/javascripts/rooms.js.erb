@@ -38,13 +38,20 @@ function updateList(tracks){
   //element.innerHTML = '<li>' + tracklist[0].title + '</li><li>' + tracklist[1].title + '</li><li>' + tracklist[2].title + '</li><li>' + tracklist[3].title + '</li><li>' + tracklist[4].title + '</li>';
   var newInner = '';
   for (var i=0; i<5; i++){
-    newInner += '<input type="radio" name="song" value="' + tracklist[i].id + '">' + tracklist[i].title + '</input><br/>';
+    newInner += '<input type="radio" class="songSelector" name="song" value="' + tracklist[i].id + '">' + tracklist[i].title + '</input><br/>';
   }
   element.innerHTML = newInner;
 }
 
-function submit(){
-  
+function checkSelected(){
+
+}
+
+function submit(){  
+  var label = $('label:contains("Soundcloud id")');
+  var element = document.getElementsByTagName('input')[0];
+  element.value = $('input[name="song"]:checked').val();
+  document.getElementById("addSong").click();
 }
 
 function toggleplayer()
