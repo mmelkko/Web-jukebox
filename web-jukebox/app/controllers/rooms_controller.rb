@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @room = Room.find(params[:id])
+    @first_song = Song.first
     @play_queue = @room.play_queue
     @play_queue.songs.build # in case user wants to add a song
     # this is done here because ror has made it impossible to open a controller action
@@ -65,7 +66,7 @@ class RoomsController < ApplicationController
     
     begin
       unless @room.play_queue.songs.first.blank?
-        @room.play_queue.songs.delete(@room.play_queue.songs.first)
+        #@room.play_queue.songs.delete(@room.play_queue.songs.first)
         @room.play_queue.songs.first.destroy
         if @room.play_queue.songs.first.blank?
           @room.play_queue.songs.create(soundcloud_id: "19306001",
@@ -75,18 +76,7 @@ class RoomsController < ApplicationController
             creator: "Beyonce",
             duration: 367186)
         end
-      else
-        @room.play_queue.songs.create(soundcloud_id: "19306001",
-          image_url: "http://i1.sndcdn.com/artworks-000009442684-7zgvh4-large.jpg?61e8f21",
-          url: "http://soundcloud.com/beyoncemusic/best-thing-i-never-had-dj",
-          name: "Best Thing I Never Had [DJ Escape & Tony Coluccio Dub Remix]",
-          creator: "Beyonce",
-          duration: 367186)
       end
-
-      @room.play_queue.save 
-      @room.save
-
       @client = SoundCloud.new(:client_id => "86898a442cab8a6489b73d3e8d927acf")
       track = @client.get("/tracks/#{@room.play_queue.songs.first.soundcloud_id}")
     rescue SoundCloud::ResponseError

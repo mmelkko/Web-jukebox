@@ -24,7 +24,7 @@ class PlayQueuesController < ApplicationController
 
     @play_queue.songs.each do |song|
       unless song.id.nil?
-        if song.image_url.nil? or song.image_url.blank?
+        if song.image_url.blank?
           begin
             track = @client.get("/tracks/#{song.soundcloud_id}")
             song.image_url = track.artwork_url

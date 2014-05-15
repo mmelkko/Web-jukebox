@@ -20,7 +20,7 @@ function search()
   SC.get('/tracks?' + (new Date()).getTime(), { q: searchQ }, function(tracks) {
     tracklist = tracks;
     var newId = tracks[0].id;
-    widget1.load("https%3A//api.soundcloud.com/tracks/" + newId + "&auto_play=true&hide_related=false&visual=true");
+//  widget1.load("https%3A//api.soundcloud.com/tracks/" + newId + "&auto_play=true&hide_related=false&visual=true");
     updateList(tracks);
   });
 }
@@ -130,21 +130,22 @@ function getTrackId()
 {
   //TODO something fucked up here
   var xmlHttp = null;
-  var sURL = 'http://localhost:3000/rooms/1/play_queues/1/songs/1.json';
+  var sURL = 'http://localhost:3000/rooms/1/play_queues/1/songs/' + $("#info").data("firstsong") + '.json';
   xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", sURL, false );
   xmlHttp.send( null );
   var song = JSON.parse(xmlHttp.responseText);
-  var currentId = song.soundcloud_id;
-  return currentId;
-  //current document URL!
   //alert(document.URL);
   //TODO NOTE HARDCODINGFS
+  return song.soundcloud_id;
 }
 
 function nextsong()
 {
-  var newTrackId;
+  var currentId = song.soundcloud_id;
+  return currentId;
+  //current document URL!
+  var newTrackId = getTrackId();
   widget1.load("https%3A//api.soundcloud.com/tracks/" + newTrackId + "&auto_play=true&hide_related=false&visual=true");
 
   $(document).ready(function() {
@@ -159,10 +160,11 @@ function nextsong()
 //when document is loaded
 $(document).ready(function() {
 var serverTrackId = getTrackId();
+alert(serverTrackId);
 var serverTime = getServerTime();
 widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
-widget1.seekTo(10000);
-alert (serverTime);
+widget1.seekTo(serverTime);
+//alert (serverTime);
 
 //	widget1.bind(SC.Widget.Events.READY, function(){
 //    widget1.play();
