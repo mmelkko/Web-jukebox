@@ -159,22 +159,19 @@ function nextsong()
 
 //when document is loaded
 $(document).ready(function() {
-var serverTrackId = getTrackId();
-//alert(serverTrackId);
-var serverTime = getServerTime();
-widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
-widget1.seekTo(serverTime);
-//alert (serverTime);
-
-//	widget1.bind(SC.Widget.Events.READY, function(){
-//    widget1.play();
-//  });
-  
-  widget1.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
-    //for testing purposes, probably not needed anymore.
-    //if(eventData.relativePosition > 0.95)gettime();
-  });
-
+setTimeout(
+  function(){
+    var serverTrackId = getTrackId();
+    //alert(serverTrackId);
+    var serverTime = getServerTime();
+    widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
+    setTimeout(
+      function(){
+        widget1.seekTo(serverTime);
+        alert(serverTime);
+      }, 500);
+    //alert (serverTime);
+  }, 500);
 });
 
 // all the intervals are here
