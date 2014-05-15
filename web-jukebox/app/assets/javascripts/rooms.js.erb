@@ -160,7 +160,7 @@ function nextsong()
 //when document is loaded
 $(document).ready(function() {
 var serverTrackId = getTrackId();
-alert(serverTrackId);
+//alert(serverTrackId);
 var serverTime = getServerTime();
 widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
 widget1.seekTo(serverTime);
