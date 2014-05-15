@@ -159,20 +159,19 @@ function nextsong()
 
 //when document is loaded
 $(document).ready(function() {
+
 setTimeout(
   function(){
     var serverTrackId = getTrackId();
     //alert(serverTrackId);
     var serverTime = getServerTime();
     widget1.load("https%3A//api.soundcloud.com/tracks/" + serverTrackId + "&auto_play=true&hide_related=false&visual=true");
-    setTimeout(
-      function(){
-        widget1.seekTo(serverTime);
-        alert(serverTime);
-      }, 500);
+    
+	  
     //alert (serverTime);
   }, 500);
-});
+
+  });
 
 // all the intervals are here
 setInterval(check_time, 1000);
